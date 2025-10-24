@@ -1,0 +1,290 @@
+<!-- =============================================
+     LAW FIRM WEBSITE - MAIN HOMEPAGE
+     =============================================
+     This is the main landing page featuring:
+     - Hero slider with practice area highlights
+     - Services section with 6 practice areas
+     - Why Choose Us section with firm strengths
+     - Client testimonials
+     - Attorney spotlight preview
+     - Call-to-action sections
+
+     File Structure:
+     - Includes header.html and footer.html dynamically
+     - Uses CSS Grid for responsive layout
+     - Integrates with script.js for interactivity
+-->
+
+<!-- =============================================
+   HOMEPAGE - LAW FIRM MAIN LANDING PAGE
+   MANUAL EDITING NOTES:
+   - Hero slider: Edit slides in <div class="slide">, change images and text
+   - Practice areas: Modify service-card content, icons in css, links
+   - Why choose us: Edit why-choose-card content
+   - Client testimonials: Update testimonial-card content and client info
+   - Attorney profiles: Edit attorney-item details and links
+   - Schema markup: Update address/phone in JSON-LD for SEO
+   ============================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Firm - Trusted Legal Solutions</title>
+    <meta name="description" content="Professional law firm offering family law, corporate law, and specialized legal services in San Francisco. Schedule a free consultation today.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.jpg" type="image/jpg">
+    <script src="js/script.js" defer></script>
+    <!-- Schema Markup for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Law Firm",
+      "description": "Trusted legal solutions since 2005",
+      "url": "https://www.lawfirm.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Market Street",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94105",
+        "addressCountry": "US"
+      },
+      "telephone": "+1 (415) 555-0123",
+      "email": "info@sterlinglegalpartners.com",
+      "serviceType": [
+        "Family Law",
+        "Corporate Law",
+        "Estate Planning",
+        "Personal Injury",
+        "ESG Law",
+        "Web3/Crypto Law"
+      ],
+      "areaServed": "San Francisco, CA"
+    }
+    </script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Slider Section -->
+    <section id="hero-slider">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slide active">
+                    <img src="images/OIG2.YyjXa.Qd3k-slider-01.jpg" alt="Legal Services 1">
+                    <div class="slide-content">
+                        <h2>Expert Legal Solutions</h2>
+                        <p>Comprehensive legal services tailored to your needs</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/OIG3.3kDS8i-slider-02.jpg" alt="Legal Services 2">
+                    <div class="slide-content">
+                        <h2>Trusted Legal Partners</h2>
+                        <p>Building lasting relationships through exceptional service</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/OIG4.H-slider-03.jpg" alt="Legal Services 3">
+                    <div class="slide-content">
+                        <h2>Professional Excellence</h2>
+                        <p>Delivering outstanding results with integrity and expertise</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="slider-nav prev-btn" onclick="changeSlide(-1)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="slider-nav next-btn" onclick="changeSlide(1)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+
+            <!-- Slide Indicators -->
+            <div class="slider-indicators">
+                <button class="indicator active" onclick="currentSlide(1)"></button>
+                <button class="indicator" onclick="currentSlide(2)"></button>
+                <button class="indicator" onclick="currentSlide(3)"></button>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="home-about">
+            <h2>About Law Firm</h2>
+            <p class="section-subtitle">Established in 2005, Law Firm has been a cornerstone of legal excellence in San Francisco. We provide comprehensive legal solutions with integrity, expertise, and a commitment to client success across all practice areas.</p>
+            <div class="about-preview">
+                <div class="about-highlight">
+                    <h3>Our Mission</h3>
+                    <p>To deliver exceptional legal services with unwavering dedication to justice, client advocacy, and professional excellence.</p>
+                    <a href="pages/about.html" class="service-link">Learn More About Us</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Practice Areas</h2>
+            <p class="section-subtitle">Comprehensive legal services across multiple specialties to meet all your legal needs.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Family Law</h3>
+                    <p>Expert assistance in divorce, custody, and family matters with compassionate legal support.</p>
+                    <a href="pages/family-law.html" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Corporate Law</h3>
+                    <p>Business incorporation, contracts, and corporate compliance with strategic legal guidance.</p>
+                    <a href="pages/corporate-law.html" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Web3/Crypto Law</h3>
+                    <p>Legal support for blockchain, cryptocurrency, and digital assets in the modern economy.</p>
+                    <a href="pages/web3-crypto-law.html" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Estate Planning</h3>
+                    <p>Comprehensive estate planning services including wills, trusts, and probate administration.</p>
+                    <a href="pages/estate-planning.html" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Personal Injury</h3>
+                    <p>Advocating for victims of accidents and negligence to secure fair compensation and justice.</p>
+                    <a href="pages/personal-injury.html" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>ESG Law</h3>
+                    <p>Environmental, Social, and Governance compliance and sustainability legal counsel.</p>
+                    <a href="pages/esg-law.html" class="service-link">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us">
+            <h2>Why Choose Us?</h2>
+            <p class="section-subtitle">Discover what sets our law firm apart and why clients trust us with their legal needs.</p>
+            <div class="why-choose-grid">
+                <div class="why-choose-card">
+                    <h3>20+ Years of Experience</h3>
+                    <p>Decades of proven expertise in handling complex legal matters with successful outcomes.</p>
+                </div>
+                <div class="why-choose-card">
+                    <h3>Award-Winning Team</h3>
+                    <p>Recognized industry leaders with multiple awards for excellence in legal services.</p>
+                </div>
+                <div class="why-choose-card">
+                    <h3>Client-Centered Approach</h3>
+                    <p>Personalized attention and tailored solutions designed around your unique needs and goals.</p>
+                </div>
+                <div class="why-choose-card">
+                    <h3>Confidentiality Guaranteed</h3>
+                    <p>Strict adherence to attorney-client privilege and complete protection of your information.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <p class="section-subtitle">Don't just take our word for it - hear from our satisfied clients.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <blockquote>"Outstanding legal representation. Highly recommended."</blockquote>
+                        <cite>- Jane Doe</cite>
+                        <p class="client-title">Family Law Client</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <blockquote>"Professional, efficient, and got excellent results for our business."</blockquote>
+                        <cite>- Mike Smith</cite>
+                        <p class="client-title">Corporate Law Client</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <blockquote>"Expert guidance through complex technology law matters."</blockquote>
+                        <cite>- Sarah Lee</cite>
+                        <p class="client-title">Web3/Crypto Law Client</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attorney Spotlight Section -->
+        <section id="attorney-spotlight">
+            <h2>Meet Our Expert Team</h2>
+            <p class="section-subtitle">Our experienced attorneys are dedicated to providing exceptional legal services.</p>
+            <div class="attorney-preview">
+                <div class="attorney-item">
+                    <h3>John Doe</h3>
+                    <p class="attorney-title">Senior Partner</p>
+                    <p class="attorney-specialty">Family Law & Corporate Law</p>
+                    <a href="pages/attorneys.html" class="attorney-link">View Profile</a>
+                </div>
+                <div class="attorney-item">
+                    <h3>Jane Smith</h3>
+                    <p class="attorney-title">Associate Attorney</p>
+                    <p class="attorney-specialty">Web3/Crypto Law & ESG</p>
+                    <a href="pages/attorneys.html" class="attorney-link">View Profile</a>
+                </div>
+                <div class="attorney-item">
+                    <h3>Mike Johnson</h3>
+                    <p class="attorney-title">Partner</p>
+                    <p class="attorney-specialty">Estate Planning & Personal Injury</p>
+                    <a href="pages/attorneys.html" class="attorney-link">View Profile</a>
+                </div>
+            </div>
+            <div class="spotlight-cta">
+                <a href="pages/attorneys.html" class="cta-button">View All Attorneys</a>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup Section -->
+        <section id="newsletter">
+            <h2>Join Our Newsletter</h2>
+            <p class="section-subtitle">Stay updated with our latest news, insights, and legal developments.</p>
+            <form id="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
+                <button type="submit" id="newsletter-submit-btn" class="cta-button newsletter-submit">
+                    <span id="newsletter-submit-text">Subscribe</span>
+                    <div id="newsletter-loading-spinner" style="display: none;">
+                        <div class="newsletter-spinner"></div>
+                    </div>
+                </button>
+                <p id="form-message" style="margin-top: 1rem; display: none;"></p>
+            </form>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

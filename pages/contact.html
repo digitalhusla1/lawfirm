@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Law Firm</title>
+    <meta name="description" content="Get in touch with our law firm for legal consultation. Contact form, address, phone, and emergency assistance available.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/favicon.jpg" type="image/jpg">
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section id="contact-hero">
+            <h1>Contact Us</h1>
+            <p>We're here to help. Reach out for a free consultation.</p>
+        </section>
+
+        <section id="contact-content">
+            <div class="contact-layout">
+                <div class="firm-address">
+                    <h2>Firm Information</h2>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <h3>Address</h3>
+                            <p>123 Market Street<br>San Francisco, CA 94105</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>Phone</h3>
+                            <p>+1 (415) 555-0123</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>Email</h3>
+                            <p>info@sterlinglegalpartners.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact-form">
+                    <h2>Get in Touch</h2>
+                    <form id="contact-form" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Type</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="family">Family Law</option>
+                                    <option value="corporate">Corporate Law</option>
+                                    <option value="estate">Estate Planning</option>
+                                    <option value="injury">Personal Injury</option>
+                                    <option value="technology">Web3/Crypto Law</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="cta-button contact-submit">
+                            <span id="submit-text">Submit</span>
+                            <div id="loading-spinner" style="display: none;">
+                                <div class="spinner"></div>
+                            </div>
+                        </button>
+                        <p id="form-message" style="margin-top: 1rem; display: none;"></p>
+                    </form>
+                </div>
+            </div>
+
+            <div id="map">
+                <iframe src="https://maps.google.com/maps?q=123 Market St, San Francisco, CA 94105&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section id="emergency">
+            <h2>Emergency Assistance</h2>
+            <p>For immediate legal assistance, call us at <strong>+1 (415) 555-0123</strong>.</p>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
