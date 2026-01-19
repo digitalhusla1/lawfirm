@@ -408,41 +408,63 @@ async function includeHTML(id, filename) {
 function adjustNavLinks() {
     // Check if current page is in pages subdirectory
     const isInPages = window.location.pathname.includes('/pages/');
-    const linkPrefix = isInPages ? '../' : ''; // Go up one level if in pages folder
 
     // Update all navigation links to correct relative paths
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href.startsWith('index.html') || href.startsWith('pages/')) {
-            link.setAttribute('href', linkPrefix + href);
+        let href = link.getAttribute('href');
+        
+        if (isInPages) {
+            // Currently in pages folder - adjust paths to work from subdirectory
+            if (href === 'index.html') {
+                // Home link: go up one level to root
+                link.setAttribute('href', '../index.html');
+            } else if (href.startsWith('pages/')) {
+                // Other pages: remove pages/ prefix since we're already in pages folder
+                // pages/about.html becomes about.html
+                const pageName = href.replace('pages/', '');
+                link.setAttribute('href', pageName);
+            }
         }
+        // If at root level, paths are already correct (index.html, pages/about.html, etc.)
     });
 
     // Update footer links as well
     const footerLinks = document.querySelectorAll('.footer-links a');
     footerLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href.startsWith('pages/') || href.startsWith('/')) {
-            link.setAttribute('href', linkPrefix + href);
+        let href = link.getAttribute('href');
+        
+        if (isInPages) {
+            // Currently in pages folder - adjust paths
+            if (href === 'index.html') {
+                link.setAttribute('href', '../index.html');
+            } else if (href.startsWith('pages/')) {
+                // Remove pages/ prefix for links within pages folder
+                const pageName = href.replace('pages/', '');
+                link.setAttribute('href', pageName);
+            }
         }
+        // If at root level, paths are already correct
     });
 
     // Adjust logo image src for correct relative path
     const logoImg = document.querySelector('.logo img');
     if (logoImg) {
-        logoImg.setAttribute('src', linkPrefix + 'images/logo.jpg');
+        const currentSrc = logoImg.getAttribute('src');
+        if (isInPages && !currentSrc.startsWith('../')) {
+            logoImg.setAttribute('src', '../' + currentSrc);
+        }
     }
 
     // Add active states to navigation menu
     const currentPathname = window.location.pathname;
 
     navLinks.forEach(link => {
-        const href = link.getAttribute('href');
+        let href = link.getAttribute('href');
 
         // For index.html active state
         if (currentPathname === '/' || currentPathname.endsWith('/index.html')) {
-            if (href.endsWith('index.html') || href === 'index.html') {
+            if (href.endsWith('index.html') || href === 'index.html' || href === '../index.html') {
                 link.classList.add('active');
             }
             return; // Don't process other checks
@@ -451,8 +473,11 @@ function adjustNavLinks() {
         // For pages in /pages/ directory
         if (currentPathname.includes('/pages/')) {
             const pageName = currentPathname.split('/pages/')[1];
-            if (pageName && href.includes(`pages/${pageName}`)) {
-                link.classList.add('active');
+            if (pageName) {
+                // Check both forms of the link (with and without pages/ prefix)
+                if (href.includes(`pages/${pageName}`) || href === pageName) {
+                    link.classList.add('active');
+                }
             }
         }
     });
